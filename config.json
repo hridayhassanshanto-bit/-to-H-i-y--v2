@@ -19,7 +19,7 @@
     "ignoreCommand": []
   },
   "adminBot": [
-    "61592047966619",
+    "61593296722166",
     "61592409098767",
     " "
   ],
@@ -27,7 +27,7 @@
     "enable": true,
     "onlyAdmin": true,
     "emojis": [
-      "👊",
+      "🌚",
       "😡"
     ],
     "notes": "If enable = true, bot will unsend any message reacted with these emojis. If onlyAdmin = true, only adminBot IDs can trigger it."
@@ -35,8 +35,8 @@
   "whiteListMode": {
     "enable": false,
     "whiteListIds": [
-      "61592047966619",
-      "61592047966619"
+      "61593296722166",
+      "61593296722166"
     ],
     "notes": "If enabled, only IDs in whiteListIds can use the bot."
   },
