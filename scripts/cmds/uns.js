@@ -59,7 +59,7 @@ module.exports = {
         );
       }
 
-      if (text === "siyam") {
+      if (text === "Šħẫňto Hřiȡẫy Ħẫššẫň") {
         return api.sendMessage(
           "👑 𝆠፝𝐒𝐈𝐘𝐀𝐌-𝐇𝐀𝐒𝐀𝐍 👑",
           threadID,
@@ -69,7 +69,7 @@ module.exports = {
 
       if (text === "u") {
         return api.sendMessage(
-          "😹আমার বস সিয়াম 😻",
+          "😹আমার বস Šħẫňto Hřiȡẫy Ħẫššẫň 😻",
           threadID,
           messageID
         );
