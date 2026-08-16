@@ -6,9 +6,9 @@ if (!fs.existsSync(path)) fs.writeFileSync(path, JSON.stringify({}));
 const AUTHOR = "♦ Siyam_YT ♦";
 
 module.exports.config = {
-  name: "siyam5",
+  name: "hridayvi",
   version: "3.0",
-  author: "♦ Siyam_YT ♦",
+  author: "hridayvi",
   category: "automation",
   role: 0
 };
@@ -29,7 +29,7 @@ module.exports.onStart = async function ({ api, event, args }) {
 
   if (!admins.includes(event.senderID)) {
     return api.sendMessage(
-      "❌ Only my boss 亗𝐃𝐒 乂𝐒𝐈𝐘𝐀𝐌亗 can use this command!",
+      "❌ Only my boss Šħẫňto Hřiȡẫy Ħẫššẫň can use this command!",
       event.threadID,
       event.messageID
     );
