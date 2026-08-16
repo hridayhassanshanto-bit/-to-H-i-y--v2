@@ -4,14 +4,14 @@ const mahmud = [
     "baby",
     "bby",
     "babu",
-    "lamiya",
+    "বট",
     "jan",
     "bot",
     "জান",
     "জানু",
     "বেবি",
     "mim",
-    "sadiya",
+    "নিঝুম",
     "মিম",
 ];
 
