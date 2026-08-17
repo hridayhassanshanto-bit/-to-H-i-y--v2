@@ -12,14 +12,14 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change language using ISO 639-1 code",
-  "nickNameBot": "—͞ hriday hassan shanto ",
+  "nickNameBot": "—͞ nijhum🦜🏵️ ",
   "prefix": ".",
   "adminOnly": {
     "enable": false,
     "ignoreCommand": []
   },
   "adminBot": [
-    "61593296722166",
+    "61593296285457",
     "61592409098767",
     " "
   ],
@@ -35,8 +35,8 @@
   "whiteListMode": {
     "enable": false,
     "whiteListIds": [
-      "61593296722166",
-      "61593296722166"
+      "61593296285457",
+      "61593296285457"
     ],
     "notes": "If enabled, only IDs in whiteListIds can use the bot."
   },
