@@ -3,20 +3,25 @@ const moment = require("moment-timezone");
 
 const getStreamFromURL = global.utils.getStreamFromURL;
 
-// ✅ VIDEO LIST
+// ═══════════════════════════════════════════════
+// 🩸⃝ NIJHUM BOT — PREFIX VIDEO LIST
+// 👑 ADMIN / DEVELOPER: HRIDOY HASAN SHANTO
+// ═══════════════════════════════════════════════
+
 const gifList = [
-	"https://files.catbox.moe/78abck.mp4",
-	"https://files.catbox.moe/r8nam4.mp4"
+	"https://files.catbox.moe/7dsuqc.mp4",
+	"https://files.catbox.moe/6e97aj.mp4"
 ];
 
-// ✅ per-thread toggle storage
-global.GoatBot.prefixVideoToggle = global.GoatBot.prefixVideoToggle || {};
+// ✅ Per-thread video toggle storage
+global.GoatBot.prefixVideoToggle =
+	global.GoatBot.prefixVideoToggle || {};
 
 module.exports = {
 	config: {
 		name: "prefix",
-		version: "2.3",
-		author: "FARHAN-KHAN",
+		version: "3.0.0",
+		author: "HRIDOY HASAN SHANTO",
 		countDown: 5,
 		role: 0,
 		description: "Change & show bot prefix",
@@ -25,69 +30,160 @@ module.exports = {
 
 	langs: {
 		en: {
-			usage: "❌ 𝐔𝐬𝐚𝐠𝐞: 𝐩𝐫𝐞𝐟𝐢𝐱 <𝐧𝐞𝐰> | 𝐩𝐫𝐞𝐟𝐢𝐱 𝐫𝐞𝐬𝐞𝐭 | 𝐩𝐫𝐞𝐟𝐢𝐱 <𝐧𝐞𝐰> -g",
-			reset: "✅ 𝐏𝐫𝐞𝐟𝐢𝐱 𝐑𝐞𝐬𝐞𝐭 𝐒𝐮𝐜𝐜𝐞𝐬𝐬!\n🔰 𝐒𝐲𝐬𝐭𝐞𝐦: %1",
-			onlyAdmin: "⛔ 𝐎𝐧𝐥𝐲 𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 𝐂𝐚𝐧 𝐂𝐡𝐚𝐧𝐠𝐞 𝐆𝐥𝐨𝐛𝐚𝐥 𝐏𝐫𝐞𝐟𝐢𝐱.",
-			confirmGlobal: "⚠️ 𝐆𝐥𝐨𝐛𝐚𝐥 𝐏𝐫𝐞𝐟𝐢𝐱 𝐂𝐡𝐚𝐧𝐠𝐞?\n👉 𝐑𝐞𝐚𝐜𝐭 𝐓𝐨 𝐂𝐨𝐧𝐟𝐢𝐫𝐦 ✅",
-			confirmThisThread: "⚠️ 𝐆𝐫𝐨𝐮𝐩 𝐏𝐫𝐞𝐟𝐢𝐱 𝐂𝐡𝐚𝐧𝐠𝐞?\n👉 𝐑𝐞𝐚𝐜𝐭 𝐓𝐨 𝐂𝐨𝐧𝐟𝐢𝐫𝐦 ✅",
-			successGlobal: "✅ 𝐆𝐋𝐎𝐁𝐀𝐋 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄𝐃!\n🆕 %1",
-			successThisThread: "✅ 𝐆𝐑𝐎𝐔𝐏 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄𝐃!\n🆕 %1"
+			usage:
+				"❌ 𝐔𝐬𝐚𝐠𝐞: 𝐩𝐫𝐞𝐟𝐢𝐱 <𝐧𝐞𝐰> | 𝐩𝐫𝐞𝐟𝐢𝐱 𝐫𝐞𝐬𝐞𝐭 | 𝐩𝐫𝐞𝐟𝐢𝐱 <𝐧𝐞𝐰> -g",
+
+			reset:
+				"✅ 𝐏𝐑𝐄𝐅𝐈𝐗 𝐑𝐄𝐒𝐄𝐓 𝐒𝐔𝐂𝐂𝐄𝐒𝐒!\n🔰 𝐒𝐘𝐒𝐓𝐄𝐌: %1",
+
+			onlyAdmin:
+				"⛔ 𝐎𝐍𝐋𝐘 𝐁𝐎𝐓 𝐀𝐃𝐌𝐈𝐍 𝐂𝐀𝐍 𝐂𝐇𝐀𝐍𝐆𝐄 𝐆𝐋𝐎𝐁𝐀𝐋 𝐏𝐑𝐄𝐅𝐈𝐗.",
+
+			confirmGlobal:
+				"⚠️ 𝐆𝐋𝐎𝐁𝐀𝐋 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄?\n👉 𝐑𝐄𝐀𝐂𝐓 𝐓𝐎 𝐂𝐎𝐍𝐅𝐈𝐑𝐌 ✅",
+
+			confirmThisThread:
+				"⚠️ 𝐆𝐑𝐎𝐔𝐏 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄?\n👉 𝐑𝐄𝐀𝐂𝐓 𝐓𝐎 𝐂𝐎𝐍𝐅𝐈𝐑𝐌 ✅",
+
+			successGlobal:
+				"✅ 𝐆𝐋𝐎𝐁𝐀𝐋 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄𝐃!\n🆕 %1",
+
+			successThisThread:
+				"✅ 𝐆𝐑𝐎𝐔𝐏 𝐏𝐑𝐄𝐅𝐈𝐗 𝐂𝐇𝐀𝐍𝐆𝐄𝐃!\n🆕 %1"
 		}
 	},
 
-	onStart: async function ({ message, role, args, commandName, event, threadsData, getLang }) {
-		if (!args[0])
+	// ═══════════════════════════════════════════════
+	// 🔰 PREFIX COMMAND
+	// ═══════════════════════════════════════════════
+
+	onStart: async function ({
+		message,
+		role,
+		args,
+		commandName,
+		event,
+		threadsData,
+		getLang
+	}) {
+		if (!args[0]) {
 			return message.reply(getLang("usage"));
+		}
 
-		const gif = getStreamFromURL(gifList[0]);
+		// 🔄 Reset prefix
+		if (args[0].toLowerCase() === "reset") {
+			await threadsData.set(
+				event.threadID,
+				null,
+				"data.prefix"
+			);
 
-		if (args[0] == 'reset') {
-			await threadsData.set(event.threadID, null, "data.prefix");
-			return message.reply(getLang("reset", global.GoatBot.config.prefix));
+			return message.reply(
+				getLang("reset", global.GoatBot.config.prefix)
+			);
 		}
 
 		const newPrefix = args[0];
 		const setGlobal = args[1] === "-g";
 
-		if (setGlobal && role < 2)
+		// 👑 Global prefix requires admin
+		if (setGlobal && role < 2) {
 			return message.reply(getLang("onlyAdmin"));
+		}
 
 		const confirmMsg = setGlobal
 			? getLang("confirmGlobal")
 			: getLang("confirmThisThread");
 
-		message.reply({
-			body: confirmMsg,
-			attachment: await getStreamFromURL(gif)
-		}, (err, info) => {
-			if (err) return;
+		try {
+			const attachment = await getStreamFromURL(gifList[0]);
 
-			global.GoatBot.onReaction.set(info.messageID, {
-				commandName,
-				author: event.senderID,
-				newPrefix,
-				setGlobal
-			});
-		});
+			message.reply(
+				{
+					body:
+						`🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝\n\n` +
+						confirmMsg +
+						`\n\n╭━━━━━━━⛓️━━━━━━━╮\n` +
+						`👑 𝐀𝐃𝐌𝐈𝐍\n` +
+						`🖤 𝐇𝐑𝐈𝐃𝐎𝐘 𝐇𝐀𝐒𝐀𝐍 𝐒𝐇𝐀𝐍𝐓𝐎\n` +
+						`╰━━━━━━━⛓️━━━━━━━╯\n` +
+						`⚔️ 𝐎𝐖𝐍𝐄𝐑 • 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 ⚔️`,
+					attachment
+				},
+				(err, info) => {
+					if (err || !info) return;
+
+					global.GoatBot.onReaction.set(
+						info.messageID,
+						{
+							commandName,
+							author: event.senderID,
+							newPrefix,
+							setGlobal
+						}
+					);
+				}
+			);
+		} catch (err) {
+			console.error("PREFIX VIDEO ERROR:", err);
+
+			message.reply(
+				`🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝\n\n` +
+				confirmMsg +
+				`\n\n⚠️ 𝐕𝐈𝐃𝐄𝐎 𝐒𝐄𝐍𝐃 𝐅𝐀𝐈𝐋𝐄𝐃.\n` +
+				`🔧 𝐏𝐋𝐄𝐀𝐒𝐄 𝐂𝐎𝐍𝐅𝐈𝐑𝐌 𝐕𝐈𝐃𝐄𝐎 𝐔𝐑𝐋.`
+			);
+		}
 	},
 
-	onReaction: async function ({ event, message, threadsData, Reaction, getLang }) {
+	// ═══════════════════════════════════════════════
+	// 🔥 REACTION CONFIRMATION
+	// ═══════════════════════════════════════════════
+
+	onReaction: async function ({
+		event,
+		message,
+		threadsData,
+		Reaction,
+		getLang
+	}) {
+		if (!Reaction) return;
 
 		if (event.userID !== Reaction.author) return;
 
 		global.GoatBot.onReaction.delete(event.messageID);
 
+		// 🌍 Global prefix
 		if (Reaction.setGlobal) {
 			global.GoatBot.config.prefix = Reaction.newPrefix;
-			fs.writeFileSync(
-				global.client.dirConfig,
-				JSON.stringify(global.GoatBot.config, null, 2)
-			);
+
+			try {
+				fs.writeFileSync(
+					global.client.dirConfig,
+					JSON.stringify(
+						global.GoatBot.config,
+						null,
+						2
+					)
+				);
+			} catch (err) {
+				console.error("PREFIX CONFIG SAVE ERROR:", err);
+			}
+
 			return message.reply(
-				getLang("successGlobal", Reaction.newPrefix)
+				`🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝\n\n` +
+				getLang(
+					"successGlobal",
+					Reaction.newPrefix
+				) +
+				`\n\n╭━━━━━━━⛓️━━━━━━━╮\n` +
+				`👑 𝐀𝐃𝐌𝐈𝐍\n` +
+				`🖤 𝐇𝐑𝐈𝐃𝐎𝐘 𝐇𝐀𝐒𝐀𝐍 𝐒𝐇𝐀𝐍𝐓𝐎\n` +
+				`╰━━━━━━━⛓️━━━━━━━╯`
 			);
 		}
 
+		// 👥 Thread prefix
 		await threadsData.set(
 			event.threadID,
 			Reaction.newPrefix,
@@ -95,47 +191,119 @@ module.exports = {
 		);
 
 		return message.reply(
-			getLang("successThisThread", Reaction.newPrefix)
+			`🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝\n\n` +
+			getLang(
+				"successThisThread",
+				Reaction.newPrefix
+			) +
+			`\n\n╭━━━━━━━⛓️━━━━━━━╮\n` +
+			`👑 𝐀𝐃𝐌𝐈𝐍\n` +
+			`🖤 𝐇𝐑𝐈𝐃𝐎𝐘 𝐇𝐀𝐒𝐀𝐍 𝐒𝐇𝐀𝐍𝐓𝐎\n` +
+			`╰━━━━━━━⛓️━━━━━━━╯`
 		);
 	},
 
-	onChat: async function ({ event, message, threadsData }) {
-		if (!event.body || event.body.toLowerCase() !== "prefix") return;
+	// ═══════════════════════════════════════════════
+	// 🩸 NO-PREFIX "prefix"
+	// ═══════════════════════════════════════════════
+
+	onChat: async function ({
+		event,
+		message,
+		threadsData
+	}) {
+		if (
+			!event.body ||
+			event.body.trim().toLowerCase() !== "prefix"
+		) {
+			return;
+		}
 
 		const threadID = event.threadID;
 
-		// ✅ toggle system (0 → 1 → 0 → 1 ...)
-		if (global.GoatBot.prefixVideoToggle[threadID] === undefined)
+		// 🔄 Toggle video 0 → 1 → 0 → 1
+		if (
+			global.GoatBot.prefixVideoToggle[threadID] === undefined
+		) {
 			global.GoatBot.prefixVideoToggle[threadID] = 0;
+		}
 
-		const index = global.GoatBot.prefixVideoToggle[threadID];
-		global.GoatBot.prefixVideoToggle[threadID] = index === 0 ? 1 : 0;
+		const index =
+			global.GoatBot.prefixVideoToggle[threadID];
 
-		const gif = await getStreamFromURL(gifList[index]);
+		global.GoatBot.prefixVideoToggle[threadID] =
+			index === 0 ? 1 : 0;
 
-		const systemPrefix = global.GoatBot.config.prefix;
-		const groupPrefix = global.utils.getPrefix(threadID);
+		// 🎬 Select video safely
+		const videoURL = gifList[index];
 
-		const threadInfo = await threadsData.get(threadID);
-		const groupName = threadInfo?.threadName || "Unknown Group";
+		let videoStream = null;
 
-		const time = moment().tz("Asia/Dhaka").format("hh:mm A");
-		const date = moment().tz("Asia/Dhaka").format("DD MMM YYYY");
+		try {
+			videoStream = await getStreamFromURL(videoURL);
+		} catch (err) {
+			console.error("PREFIX VIDEO ERROR:", err);
+		}
 
-		const owner = "UDAY HASAN SIYAM";
+		const systemPrefix =
+			global.GoatBot.config.prefix;
 
-		return message.reply({
-			body:
-`╭━〔《𓆩𝐏𝐑𝐄𝐅𝐈𝐗 𝐏𝐀𝐍𝐄𝐋𓆪》〕━╮
-┃ 🏷️ 𓆩𝐆𝐑𝐎𝐔𝐏𓆪: ${groupName}
-┃ 🔰 𓆩𝐒𝐘𝐒𝐓𝐄𝐌𓆪: ${systemPrefix}
-┃ 💬 𓆩𝐆𝐑𝐎𝐔𝐏𓆪: ${groupPrefix}
-┃ ⏰ 𓆩𝐓𝐈𝐌𝐄𓆪: ${time}
-┃ 📅 𓆩𝐃𝐀𝐓𝐄𓆪: ${date}
-┃ 👑 𓆩𝐎𝐖𝐍𝐄𝐑𓆪: ${owner}
-┃ ⚡ 𓆩𝐒𝐓𝐀𝐓𝐔𝐒𓆪: ONLINE
-╰━〔《𓆩𝐍𝐈𝐉𝐇𝐔𝐌𓆪》〕━╯`,
-			attachment: gif
-		});
+		const groupPrefix =
+			global.utils.getPrefix(threadID);
+
+		let threadInfo;
+
+		try {
+			threadInfo = await threadsData.get(threadID);
+		} catch (err) {
+			threadInfo = null;
+		}
+
+		const groupName =
+			threadInfo?.threadName || "Unknown Group";
+
+		// 🇲🇾 Malaysia Time
+		const time = moment()
+			.tz("Asia/Kuala_Lumpur")
+			.format("hh:mm A");
+
+		const date = moment()
+			.tz("Asia/Kuala_Lumpur")
+			.format("DD MMM YYYY");
+
+		const owner =
+			"𝐇𝐑𝐈𝐃𝐎𝐘 𝐇𝐀𝐒𝐀𝐍 𝐒𝐇𝐀𝐍𝐓𝐎";
+
+		const body =
+`🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝
+
+╭━━━━━━━⛓️━━━━━━━╮
+👑 𝐀𝐃𝐌𝐈𝐍
+🖤 ${owner}
+╰━━━━━━━⛓️━━━━━━━╯
+
+⚔️ 𝐎𝐖𝐍𝐄𝐑 • 𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 ⚔️
+
+╭━━━━━━━━━━━━━━━━╮
+🏷️ 𝐆𝐑𝐎𝐔𝐏: ${groupName}
+🔰 𝐒𝐘𝐒𝐓𝐄𝐌: ${systemPrefix}
+💬 𝐆𝐑𝐎𝐔𝐏: ${groupPrefix}
+⏰ 𝐓𝐈𝐌𝐄: ${time}
+📅 𝐃𝐀𝐓𝐄: ${date}
+⚡ 𝐒𝐓𝐀𝐓𝐔𝐒: 𝐎𝐍𝐋𝐈𝐍𝐄
+╰━━━━━━━━━━━━━━━━╯
+
+🩸⃝ 𝐍𝐈𝐉𝐇𝐔𝐌 𝐁𝐎𝐓 🩸⃝`;
+
+		const replyData = {
+			body
+		};
+
+		// 🎬 Attach video only if successfully loaded
+		if (videoStream) {
+			replyData.attachment = videoStream;
+		}
+
+		return message.reply(replyData);
 	}
 };
